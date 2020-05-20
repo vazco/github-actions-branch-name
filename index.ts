@@ -2,25 +2,35 @@ import { setFailed, debug, error, setOutput, info } from '@actions/core';
 import { context, } from '@actions/github';
 
 try {
-  const allParts = context.ref.split('/');
-  debug('tesssst');
-  info('tesssst');
-  error('tesssst');
-  debug(context.ref);
-  info(context.ref);
-  error(context.ref);
-  let branchParts: string[];
-  if (context.ref === 'pull_request') {
-    // Pull request refs are formatted differently like and have an additional part in them
-    // So they need to be handled accordingly
-    branchParts = allParts.slice(3);
+  debug('ref: ' + context.ref);
+  debug('action: ' + context.action);
+  debug('eventName: ' + context.eventName);
+  debug('BASE BRANCH: ' + process.env.BASE_BRANCH);
+  debug('GITHUB_HEAD_REF: ' + process.env.GITHUB_HEAD_REF);
+  debug('GITHUB_BASE_REF: ' + process.env.GITHUB_BASE_REF);
+  debug(context.payload.pull_request.html_url);
+  debug(context.payload.pull_request.body);
+  debug(context.payload.pull_request.number.toString());
+  debug(context.payload.action);
+  debug(context.issue.repo);
+  debug(context.issue.number.toString());
+  debug(context.sha);
+  debug(context.workflow);
+  debug(context.actor);
+
+  let branch: string;
+  if (context.eventName === 'pull_request') {
+    // The docs say that this variable is set only for forked repositories
+    // but it seems to work just fine with a PR.
+    // https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
+    branch = process.env.GITHUB_HEAD_REF;
   } else {
-    branchParts = allParts.slice(2);
+    branch = process.env.BASE_BRANCH;
   }
 
-  const branch = branchParts.join('_');
-  error(branch);
-  setOutput('branch_name', branch);
+  debug(`Extracted branch name: ${branch}`);
+  // Replace all slashes with downscores
+  setOutput('branch_name', branch.replace('/', '_'));
 } catch (error) {
   setFailed(error.message);
 }

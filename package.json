@@ -14,12 +14,6 @@
     "@actions/github": "^2.2.0"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.22.2",
-    "husky": "^4.2.5"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn build"
-    }
+    "@zeit/ncc": "^0.22.2"
   }
 }
