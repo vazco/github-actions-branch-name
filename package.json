@@ -1,0 +1,19 @@
+{
+  "name": "branch_name",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "repository": "https://github.com/vazco/branch_name.git",
+  "author": "vazco",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "ncc build index.ts -o build --minify"
+  },
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^2.2.0"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.22.2"
+  }
+}
