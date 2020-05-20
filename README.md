@@ -1,4 +1,4 @@
-## vazco/branch_name
+## vazco/github-actions-branch-name
 
 ### Description
 A simple github action for extracting the current branch name that triggered this action.
@@ -13,7 +13,7 @@ has to be extracted from a different environment variable.
 steps:
   - uses: actions/checkout@v2
   - name: Extract branch name
-    uses: vazco/branch_name@v1
+    uses: vazco/github-actions-branch-name@v1
     id: branch
   - name: Echo branch name
     run: echo "${{ steps.branch.outputs.branch_name }}"
