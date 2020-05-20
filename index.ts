@@ -3,6 +3,9 @@ import { context, } from '@actions/github';
 
 try {
   const allParts = context.ref.split('/');
+  debug('tesssst');
+  info('tesssst');
+  error('tesssst');
   debug(context.ref);
   info(context.ref);
   error(context.ref);
