@@ -4,7 +4,7 @@
 A simple github action for extracting the current branch name that triggered this action.
 
 ### Why
-Most actions and scripts and marketplace do not work for pull requests. 
+Most actions and scripts in the marketplace do not work for pull requests. 
 Github handles `push` and `pull_request` events differently and the branch name
 has to be extracted from a different environment variable.
 
@@ -21,7 +21,7 @@ steps:
 
 ### Note
 As of this commit, this action only explicitly accounts for `pull_request` and `push` events.
-If other events do not behave like those this action has to be extended.
+If other events do not behave like those, this action has to be extended.
 
 ### Development
 Clone the repo and install dependencies with `yarn`.
