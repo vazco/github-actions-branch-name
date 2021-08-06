@@ -24,7 +24,7 @@ As of this commit, this action only explicitly accounts for `pull_request` and `
 If other events do not behave like those, this action has to be extended.
 
 ### Development
-Clone the repo and install dependencies with `yarn`.
+Clone the repo and install dependencies with `npm ci`.
 The action can be debugged by making/using the existing workflow in this repo (`.github/workflows/debug.yml`).
-After making changes build the action by running `yarn build`.
+After making changes build the action by running `npm run build`.
 The generated output has to be pushed to the repository too.
