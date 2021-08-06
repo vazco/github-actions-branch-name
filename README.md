@@ -1,7 +1,7 @@
 ## vazco/github-actions-branch-name
 
 ### Description
-A simple github action for extracting the current branch name that triggered this action.
+A simple github action for extracting the branch/tag name that triggered this action.
 
 ### Why
 Most actions and scripts in the marketplace do not work for pull requests. 
