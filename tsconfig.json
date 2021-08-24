@@ -1,3 +1,6 @@
 {
-  "files": ["index.ts"]
+  "files": ["index.ts"],
+  "compilerOptions": {
+    "moduleResolution": "node"
+  }
 }

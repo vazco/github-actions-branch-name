@@ -10,10 +10,11 @@
     "build": "ncc build index.ts -o build --minify"
   },
   "dependencies": {
-    "@actions/core": "^1.2.4",
-    "@actions/github": "^2.2.0"
+    "@actions/core": "1.4.0",
+    "@actions/github": "5.0.0"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.22.2"
+    "@vercel/ncc": "0.29.0",
+    "typescript": "4.3.5"
   }
 }

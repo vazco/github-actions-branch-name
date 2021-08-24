@@ -1,18 +1,21 @@
-import { setFailed, debug, error, setOutput, info } from '@actions/core';
-import { context, } from '@actions/github';
+import { setFailed, debug, setOutput } from '@actions/core';
+import { context } from '@actions/github';
+
+declare const process: {
+  env: {
+    GITHUB_HEAD_REF: string
+  }
+}
 
 try {
   let branch: string;
   if (context.eventName === 'pull_request') {
-    // The docs say that this variable is set only for forked repositories
-    // but it seems to work just fine with a PR.
-    // https://help.github.com/en/actions/configuring-and-managing-workflows/using-environment-variables
-    branch = process.env.GITHUB_HEAD_REF.replace('/', '_');
+    branch = process.env.GITHUB_HEAD_REF;
   } else {
     // Other events where we have to extract branch from the ref
-    // Ref example: refs/heads/master
+    // Ref example: refs/heads/master, refs/tags/X
     const branchParts = context.ref.split('/');
-    branch = branchParts.slice(2).join('_');
+    branch = branchParts.slice(2).join('/');
   }
 
   debug(`Extracted branch name: ${branch}`);
