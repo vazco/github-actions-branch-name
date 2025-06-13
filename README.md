@@ -1,5 +1,7 @@
 ## vazco/github-actions-branch-name
 
+**[Deprecated] This project is no longer maintained.**
+
 ### Description
 A simple github action for extracting the branch/tag name that triggered this action.
 
